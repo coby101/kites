@@ -1,0 +1,33 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "index.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+<h1>Company Structures - Companies</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th colspan="3">(actions)</th>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+</thead>
+  <tbody>
+<% @companies.each do |company| %>
+  <tr>
+    <td><%= link_to 'Show', mng_cmp_company_path(company) %></td>
+    <td><%= link_to 'Edit', edit_mng_cmp_company_path(company) %></td>
+    <td><%= link_to 'Delete', mng_cmp_company_path(company), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %></td>
+      <td><%= company.code.to_s %></td>
+      <td><%= company.name.to_s %></td>
+      <td><%= company.company_type.to_s %></td>
+      <td><%= company.description.to_s %></td>
+  </tr>
+<% end %></tbody>
+</table>
+<br>
+
+<%= link_to 'New Company', new_mng_cmp_company_path %>

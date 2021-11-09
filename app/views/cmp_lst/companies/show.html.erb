@@ -1,0 +1,31 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Company Name:</strong></td>
+<td><%= @company.name.to_s %></td>
+
+<td><strong>Company Code:</strong></td>
+<td><%= @company.code.to_s %></td>
+
+<td><strong>Company Type:</strong></td>
+<td><%= @company.company_type.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Description:</strong></td>
+<td><%= @company.description.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Divisions:</strong></td>
+<td><%= @company.divisions.count() %></td>
+
+<td><strong>Staff:</strong></td>
+<td><%= @company.staff.count() %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Hide Details', cmp_lst_companies_path %>

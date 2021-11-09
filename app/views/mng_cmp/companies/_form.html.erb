@@ -1,0 +1,41 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "_form.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<%= form_with(model: [:mng_cmp, company]) do |form| %>
+<% if company.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(company.errors.count, "error") %> prevented this Company from saving:</h2>
+      <ul>
+       <% company.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+       <% end %></ul>
+  </div>
+<% end %>
+
+  <table>
+  <tbody>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Company Code" %>
+  <%= form.text_field :code %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "Company Name" %>
+  <%= form.text_field :name %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "Company Type" %>
+  <%= form.select :company_type, [["(not applicable)", ""], ["construction", "construction"], ["retail", "retail"], ["engineering", "engineering"], ["holding", "holding"]], selected: form.object.company_type || "construction" %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Description" %>
+  <%= form.text_area :description, size: "70x4" %>
+</div></td>
+  </tr></tbody>
+</table>
+<div class="actions"><%= form.submit %></div>
+<% end %>

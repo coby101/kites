@@ -1,0 +1,90 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "_form.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<%= form_with(model: [:mng_stff, employee]) do |form| %>
+<% if employee.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(employee.errors.count, "error") %> prevented this Employee from saving:</h2>
+      <ul>
+       <% employee.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+       <% end %></ul>
+  </div>
+<% end %>
+
+  <table>
+  <tbody>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Given Name" %>
+  <%= form.text_field :given_name %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "Middle Name" %>
+  <%= form.text_field :middle_name %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "Family Name" %>
+  <%= form.text_field :family_name %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Employee Code" %>
+  <%= form.text_field :code %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "Date of Birth" %>
+  <%= form.date_field :birth_date %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "Manager" %>
+  <%= form.collection_select :manager_id, Employee.order(:code), :id, :first_last_name, :prompt => '(optional)', :include_blank => '(none)' %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Address (line 1)" %>
+  <%= form.text_field :address1 %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Address (line 2)" %>
+  <%= form.text_field :address2 %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Address (line 3)" %>
+  <%= form.text_field :address3 %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Municipality or suburb" %>
+  <%= form.text_field :locality %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "State" %>
+  <%= form.select :state, [["(not applicable)", ""], ["NSW", "NSW"], ["ACT", "ACT"], ["VIC", "VIC"], ["QLD", "QLD"], ["SA", "SA"], ["WAS", "WAS"], ["TAS", "TAS"], ["NT", "NT"]], selected: form.object.state || "TAS" %>
+</div></td>
+    <td><div class="field">
+  <%= form.label "Post Code" %>
+  <%= form.text_field :post_code %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Country" %>
+  <%= form.collection_select :country, Country.order(:name), :nick_name, :name, :prompt => '(optional)', :include_blank => '(none)' %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="error">"Phones" is a multi-valued attribute. Multi-valued attributes are not handled yet</div></td>
+  </tr></tbody>
+</table>
+<div class="actions"><%= form.submit %></div>
+<% end %>

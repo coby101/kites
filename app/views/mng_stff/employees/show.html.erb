@@ -1,0 +1,68 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Given Name:</strong></td>
+<td><%= @employee.given_name.to_s %></td>
+
+<td><strong>Middle Name:</strong></td>
+<td><%= @employee.middle_name.to_s %></td>
+
+<td><strong>Family Name:</strong></td>
+<td><%= @employee.family_name.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Employee Code:</strong></td>
+<td><%= @employee.code.to_s %></td>
+
+<td><strong>Date of Birth:</strong></td>
+<td><%= @employee.birth_date.to_s %></td>
+
+<td><strong>Manager Full Name:</strong></td>
+<td><%= if Employee.find_by_id(@employee.manager_id).blank?
+  '(Manager not found)'
+else
+  Employee.find_by_id(@employee.manager_id).first_last_name
+end %></td>
+</tr>
+    <tr>
+<td><strong>Address (line 1):</strong></td>
+<td><%= @employee.address1.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Address (line 2):</strong></td>
+<td><%= @employee.address2.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Address (line 3):</strong></td>
+<td><%= @employee.address3.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Municipality or suburb:</strong></td>
+<td><%= @employee.locality.to_s %></td>
+
+<td><strong>State:</strong></td>
+<td><%= @employee.state.to_s %></td>
+
+<td><strong>Post Code:</strong></td>
+<td><%= @employee.post_code.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Country:</strong></td>
+<td><%= @employee.country.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Phone Number:</strong></td>
+<td><%= '@employee.phones' %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Edit', edit_mng_stff_employee_path(@employee) %>
+<%= link_to 'Delete', mng_stff_employee_path(@employee), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %>
+<%= link_to 'Hide Details', mng_stff_employees_path %>
+
+<%= link_to 'New Employee', new_mng_stff_employee_path %>

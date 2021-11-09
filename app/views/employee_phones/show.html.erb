@@ -1,0 +1,26 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Phone Type:</strong></td>
+<td><%= @employee_phone.phone_type.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Comment:</strong></td>
+<td><%= @employee_phone.comment.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Number:</strong></td>
+<td><%= @employee_phone.number.to_s %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Edit', edit_employee_phone_path(@employee_phone) %>
+<%= link_to 'Delete', employee_phone_path(@employee_phone), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %>
+<%= link_to 'Hide Details', employee_phones_path %>
+
+<%= link_to 'New Employee Phone', new_employee_phone_path %>

@@ -1,0 +1,30 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Country Number:</strong></td>
+<td><%= @country.number.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Country Name:</strong></td>
+<td><%= @country.name.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Country Code:</strong></td>
+<td><%= @country.code.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Nick Name:</strong></td>
+<td><%= @country.nick_name.to_s %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Edit', edit_country_path(@country) %>
+<%= link_to 'Delete', country_path(@country), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %>
+<%= link_to 'Hide Details', countries_path %>
+
+<%= link_to 'New Country', new_country_path %>

@@ -1,0 +1,28 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Division Name:</strong></td>
+<td><%= @division.name.to_s %></td>
+
+<td><strong>Division Code:</strong></td>
+<td><%= @division.code.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Operational Manager Full Name:</strong></td>
+<td><%= Employee.find_by_id(@division.operational_manager_id).first_last_name %></td>
+
+<td><strong>Status:</strong></td>
+<td><%= @division.status.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Description:</strong></td>
+<td><%= @division.description.to_s %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Hide Details', cmp_lst_divisions_path %>

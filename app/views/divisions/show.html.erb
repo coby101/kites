@@ -1,0 +1,34 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Status:</strong></td>
+<td><%= @division.status.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Description:</strong></td>
+<td><%= @division.description.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Division Name:</strong></td>
+<td><%= @division.name.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Division Code:</strong></td>
+<td><%= @division.code.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Default Operational Markup:</strong></td>
+<td><%= number_to_percentage((@division.op_mark) * 100, precision: 2) %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Edit', edit_division_path(@division) %>
+<%= link_to 'Delete', division_path(@division), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %>
+<%= link_to 'Hide Details', divisions_path %>
+
+<%= link_to 'New Division', new_division_path %>

@@ -1,0 +1,63 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "_form.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<%= form_with(model: [division]) do |form| %>
+<% if division.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(division.errors.count, "error") %> prevented this Division from saving:</h2>
+      <ul>
+       <% division.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+       <% end %></ul>
+  </div>
+<% end %>
+
+  <table>
+  <tbody>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Operational Manager" %>
+  <%= form.collection_select :operational_manager_id, Employee.order(:code), :id, :first_last_name, :prompt => 'please select', :include_blank => false %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Company" %>
+  <%= form.collection_select :company_id, Company.order(:name), :id, :name, :prompt => 'please select', :include_blank => false %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Status" %>
+  <%= form.select :status, [["active", "active"], ["dormant", "dormant"], ["archived", "archived"]], selected: form.object.status || "active" %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Description" %>
+  <%= form.text_area :description, size: "70x4" %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Division Name" %>
+  <%= form.text_field :name %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Division Code" %>
+  <%= form.text_field :code %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Default Operational Markup" %>
+  <%= form.text_field :op_mark %>
+</div></td>
+  </tr></tbody>
+</table>
+<div class="actions"><%= form.submit %></div>
+<% end %>

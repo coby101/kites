@@ -1,0 +1,35 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "index.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+<h1>Our Company Structures - Employees</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th colspan="1">(actions)</th>
+    <th>Code</th>
+    <th>Nick Name</th>
+    <th>Given Name</th>
+    <th>Address</th>
+    <th>Address</th>
+    <th>Locality</th>
+  </tr>
+</thead>
+  <tbody>
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= link_to 'Show', cmp_lst_employee_path(employee) %></td>
+      <td><%= employee.code.to_s %></td>
+      <td><%= employee.nick_name.to_s %></td>
+      <td><%= employee.given_name.to_s %></td>
+      <td><%= employee.address1.to_s %></td>
+      <td><%= employee.address2.to_s %></td>
+      <td><%= employee.locality.to_s %></td>
+  </tr>
+<% end %></tbody>
+</table>
+<br>
+
+

@@ -1,0 +1,32 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Division Name:</strong></td>
+<td><%= @division.name.to_s %></td>
+
+<td><strong>Division Code:</strong></td>
+<td><%= @division.code.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Operational Manager Full Name:</strong></td>
+<td><%= Employee.find_by_id(@division.operational_manager_id).first_last_name %></td>
+
+<td><strong>Status:</strong></td>
+<td><%= @division.status.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Description:</strong></td>
+<td><%= @division.description.to_s %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Edit', edit_mng_cmp_division_path(@division) %>
+<%= link_to 'Delete', mng_cmp_division_path(@division), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %>
+<%= link_to 'Hide Details', mng_cmp_divisions_path %>
+
+<%= link_to 'New Division', new_mng_cmp_division_path %>

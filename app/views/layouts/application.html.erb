@@ -1,0 +1,55 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "default-layouts" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2RK Tutorial Web Application</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body><div class="container wrapper">
+<div id="app-banner"><hr><h1>2RK Tutorial Web Application</h1><hr></div>
+<%= link_to 'Application Home Page', home_path %>
+<div class="wrapper">
+  <div id="menubar">
+    <div id="menulist">
+<button type="button" class="collapsible">Company Reference Information</button>
+<div class="content"><%= link_to 'Our Company Structure', cmp_lst_companies_path, class: 'menuitem' %></div>
+<button type="button" class="collapsible">Company Setup Views</button>
+<div class="content"><%= link_to 'Manage Company Staff', mng_stff_employees_path, class: 'menuitem' %><br><%= link_to 'Company Structure', mng_cmp_companies_path, class: 'menuitem' %></div>
+<button type="button" class="collapsible">Application Developer Views</button>
+<div class="content"><div class="menuitem">(this space has no content)</div></div>
+<button type="button" class="collapsible">Developement  Only  Views</button>
+<div class="content"><%= link_to 'Developer\'s view of Company', companies_path, class: 'menuitem' %><br><%= link_to 'Developer\'s view of Country', countries_path, class: 'menuitem' %><br><%= link_to 'Developer\'s view of Division', divisions_path, class: 'menuitem' %><br><%= link_to 'Developer\'s view of Employee', employees_path, class: 'menuitem' %><br><%= link_to 'Developer\'s view of EmployeePhone', employee_phones_path, class: 'menuitem' %><br><%= link_to 'Developer\'s view of PhoneType', phone_types_path, class: 'menuitem' %></div>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>    </div>
+  </div>
+  <div id="main"> <%= yield %></div>
+</div>
+<hr>
+<%= link_to 'Application Home Page', home_path %>
+</body>
+</html>

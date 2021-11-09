@@ -1,0 +1,51 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "index.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+<h1>Developer's view of Employees - Employees</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th colspan="3">(actions)</th>
+    <th>DOB</th>
+    <th>Country</th>
+    <th>Post Code</th>
+    <th>State</th>
+    <th>Locality</th>
+    <th>Address</th>
+    <th>Address</th>
+    <th>Address</th>
+    <th>Nick Name</th>
+    <th>Middle Name</th>
+    <th>Given Name</th>
+    <th>Family Name</th>
+    <th>Code</th>
+  </tr>
+</thead>
+  <tbody>
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= link_to 'Show', employee_path(employee) %></td>
+    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+    <td><%= link_to 'Delete', employee_path(employee), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %></td>
+      <td><%= employee.birth_date.to_s %></td>
+      <td><%= employee.country.to_s %></td>
+      <td><%= employee.post_code.to_s %></td>
+      <td><%= employee.state.to_s %></td>
+      <td><%= employee.locality.to_s %></td>
+      <td><%= employee.address3.to_s %></td>
+      <td><%= employee.address2.to_s %></td>
+      <td><%= employee.address1.to_s %></td>
+      <td><%= employee.nick_name.to_s %></td>
+      <td><%= employee.middle_name.to_s %></td>
+      <td><%= employee.given_name.to_s %></td>
+      <td><%= employee.family_name.to_s %></td>
+      <td><%= employee.code.to_s %></td>
+  </tr>
+<% end %></tbody>
+</table>
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>

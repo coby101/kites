@@ -1,0 +1,35 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "index.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+<h1>Manage Company Staffs - Employees</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th colspan="3">(actions)</th>
+    <th>Code</th>
+    <th>Full Name</th>
+    <th>Manager Full Name</th>
+  </tr>
+</thead>
+  <tbody>
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= link_to 'Show', mng_stff_employee_path(employee) %></td>
+    <td><%= link_to 'Edit', edit_mng_stff_employee_path(employee) %></td>
+    <td><%= link_to 'Delete', mng_stff_employee_path(employee), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %></td>
+      <td><%= employee.code.to_s %></td>
+      <td><%= employee.first_last_name.to_s %></td>
+      <td><%= if Employee.find_by_id(employee.manager_id).blank?
+    '(Manager not found)'
+  else
+    Employee.find_by_id(employee.manager_id).first_last_name
+  end %></td>
+  </tr>
+<% end %></tbody>
+</table>
+<br>
+
+<%= link_to 'New Employee', new_mng_stff_employee_path %>

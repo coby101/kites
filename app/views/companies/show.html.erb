@@ -1,0 +1,30 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Company Type:</strong></td>
+<td><%= @company.company_type.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Description:</strong></td>
+<td><%= @company.description.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Company Name:</strong></td>
+<td><%= @company.name.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Company Code:</strong></td>
+<td><%= @company.code.to_s %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Edit', edit_company_path(@company) %>
+<%= link_to 'Delete', company_path(@company), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %>
+<%= link_to 'Hide Details', companies_path %>
+
+<%= link_to 'New Company', new_company_path %>

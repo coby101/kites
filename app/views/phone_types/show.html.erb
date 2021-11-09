@@ -1,0 +1,22 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "show.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<p id="notice"><%= notice %></p>
+  <table border="1">
+    <tbody>
+    <tr>
+<td><strong>Phone Type Name:</strong></td>
+<td><%= @phone_type.name.to_s %></td>
+</tr>
+    <tr>
+<td><strong>Description:</strong></td>
+<td><%= @phone_type.description.to_s %></td>
+</tr></tbody>
+  </table>
+<%= link_to 'Edit', edit_phone_type_path(@phone_type) %>
+<%= link_to 'Delete', phone_type_path(@phone_type), method: :delete, data: { confirm: 'Are you sure? You are about to delete this record.' } %>
+<%= link_to 'Hide Details', phone_types_path %>
+
+<%= link_to 'New Phone Type', new_phone_type_path %>

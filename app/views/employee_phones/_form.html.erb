@@ -1,0 +1,45 @@
+<% # ######################################
+# this file was generated on Wednesday November 10, 2021 at 10:48:22 AEDT by
+# "_form.html.erb" do not modify this file, your changes will be clobbered!
+# #################################
+ %>
+<%= form_with(model: [employee_phone]) do |form| %>
+<% if employee_phone.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(employee_phone.errors.count, "error") %> prevented this Employee Phone from saving:</h2>
+      <ul>
+       <% employee_phone.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+       <% end %></ul>
+  </div>
+<% end %>
+
+  <table>
+  <tbody>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Employee" %>
+  <%= form.collection_select :employee_id, Employee.order(:code), :id, :first_last_name, :prompt => 'please select', :include_blank => false %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Phone Type" %>
+  <%= form.collection_select :phone_type, PhoneType.order(:name), :name, :name, :prompt => 'please select', :include_blank => false %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Comment" %>
+  <%= form.text_area :comment, size: "70x4" %>
+</div></td>
+  </tr>
+  <tr>
+    <td><div class="field">
+  <%= form.label "Number" %>
+  <%= form.telephone_field :number %>
+</div></td>
+  </tr></tbody>
+</table>
+<div class="actions"><%= form.submit %></div>
+<% end %>
